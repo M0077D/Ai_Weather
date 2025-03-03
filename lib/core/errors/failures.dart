@@ -10,3 +10,7 @@ class ServerFailure extends Failure {
 class CacheFailure extends Failure {
   CacheFailure(String message) : super(message);
 }
+
+class LocationFailure extends Failure {
+  LocationFailure(String message) : super(message);
+}

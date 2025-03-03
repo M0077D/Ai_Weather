@@ -48,7 +48,7 @@ class SignUpPage extends StatelessWidget {
               ),
               const SizedBox(height: 30),
 
-              /// Full Name Input Field
+              /// Name Input Field
               AuthTextField(
                 controller: _usernameController,
                 labelText: 'Username',
@@ -137,20 +137,3 @@ class SignUpPage extends StatelessWidget {
     );
   }
 }
-  /// Custom Input Field
- 
-
-  /// Page Indicator Dot
-  // ignore: unused_element
-  /*Widget _buildPageIndicator({bool isActive = false}) {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 4),
-      width: 12,
-      height: 12,
-      decoration: BoxDecoration(
-        color: isActive ? Colors.white : Colors.grey,
-        shape: BoxShape.circle,
-      ),
-    );
-  }
-}*/
