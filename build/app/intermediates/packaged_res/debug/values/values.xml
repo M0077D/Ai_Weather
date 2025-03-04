@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gcm_defaultSenderId" translatable="false">59876352325</string>
+    <string name="google_api_key" translatable="false">AIzaSyAS0BDjm_CQpgX--Pz4SyqlQq0S4TYnVHc</string>
+    <string name="google_app_id" translatable="false">1:59876352325:android:507e0393fd553d9aac5e2c</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAS0BDjm_CQpgX--Pz4SyqlQq0S4TYnVHc</string>
+    <string name="google_storage_bucket" translatable="false">ai-weather-52a5f.firebasestorage.app</string>
+    <string name="project_id" translatable="false">ai-weather-52a5f</string>
+    <style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        
+        <item name="android:windowBackground">@drawable/launch_background</item>
+    </style>
+    <style name="NormalTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        <item name="android:windowBackground">?android:colorBackground</item>
+    </style>
+</resources>

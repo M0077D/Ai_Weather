@@ -8,6 +8,18 @@ import 'package:task1/features/auth/domain/usecases/sign_in_use_case.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:task1/features/auth/presentation/Screens/scn1.dart';
 import 'package:task1/features/auth/presentation/controller/providers.dart';
+import 'package:task1/features/weather/data/datasources/weather_remote_data_source.dart';
+import 'package:task1/features/weather/data/datasources/user_remote_user_data_source.dart';
+import 'package:task1/features/weather/data/repositories/weather_repository_impl.dart';
+import 'package:task1/features/weather/data/repositories/user_repository_impl.dart';
+import 'package:task1/features/weather/domain/usecases/get_weather_usecase.dart';
+import 'package:task1/features/weather/domain/usecases/get_user_usecase.dart';
+import 'package:task1/features/weather/presentation/providers/weather_provider.dart';
+import 'package:task1/features/weather/presentation/providers/user_provider.dart';
+import 'package:task1/features/weather/data/datasources/ai_model_service.dart';
+import 'package:task1/features/weather/data/repositories/ai_weather_repository_impl.dart';
+import 'package:task1/features/weather/domain/usecases/predict_outdoor_activity_usecase.dart';
+import 'package:task1/features/weather/presentation/providers/ai_weather_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,11 +51,38 @@ class Ai_Weather extends StatelessWidget {
             ),
           ),
         ),
+        ChangeNotifierProvider(
+          create: (_) => WeatherProvider(
+            getWeatherUseCase: GetWeatherUseCase(
+              repository: WeatherRepositoryImpl(
+                remoteDataSource: WeatherRemoteDataSource(),
+              ),
+            ),
+          ),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => UserProvider(
+            getUserUseCase: GetUserUseCase(
+              repository: UserRepositoryImpl(
+                remoteDataSource: UserRemoteDataSource(),
+              ),
+            ),
+          ),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => AiWeatherProvider(
+            predictOutdoorActivityUseCase: PredictOutdoorActivityUseCase(
+              repository: AiWeatherRepositoryImpl(
+                aiModelService: AiModelService(),
+              ),
+            ),
+          ),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Auth App',
-        home: WelcomePage(),
+        title: 'Auth & Weather App',
+        home: WelcomePage(), // Your existing welcome page
       ),
     );
   }

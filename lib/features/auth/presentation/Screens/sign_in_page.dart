@@ -58,6 +58,7 @@ import 'package:provider/provider.dart';
 import 'package:task1/features/auth/presentation/Screens/sign_up_page.dart';
 import 'package:task1/features/auth/presentation/controller/providers.dart';
 import 'package:task1/features/auth/presentation/widgets/auth_text_field.dart';
+import 'package:task1/features/weather/presentation/screens/WeatherPage.dart';
 
 class SignInPage extends StatelessWidget {
   final _emailController = TextEditingController();
@@ -145,6 +146,11 @@ class SignInPage extends StatelessWidget {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Text('Signed In successfully')),
                     );
+
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => WeatherScreen()));
                   } catch (e) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Text('Failed to sign up: $e')),

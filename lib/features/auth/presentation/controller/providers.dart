@@ -33,7 +33,7 @@ class AuthProvider with ChangeNotifier {
   Future<void> signUp(String email, String password, String username) async {
     try {
       _user = await signUpUseCase(
-          SignUpParams(email: email, password: password, username: 'username'));
+          SignUpParams(email: email, password: password, username: username));
       notifyListeners();
     } catch (e) {
       rethrow;
